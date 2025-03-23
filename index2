@@ -41,11 +41,71 @@
 <body>
 
   <h1>🎬 Watch the Video</h1>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Watch & Comment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #222;
+    }
+    iframe {
+      width: 100%;
+      border: none;
+      margin-bottom: 30px;
+    }
+  </style>
+  <script>
+    function getVideoCode() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get('video') || '';
+    }
+
+    function updateFormLink() {
+      const videoCode = getVideoCode();
+      const formBase = "https://docs.google.com/forms/d/e/1FAIpQLSek5iHOME29_OZqOEb-5vVtiDqxZpmo793IPuWBaV7Rc0blFQ/viewform?embedded=true";
+      const fieldID = "entry.1767570797";
+      const formURL = `${formBase}&${fieldID}=${encodeURIComponent(videoCode)}`;
+      document.getElementById("formFrame").src = formURL;
+    }
+
+    window.onload = updateFormLink;
+  </script>
+</head>
+<body>
+
+  <h1>🎬 Watch the Video</h1>
   <iframe 
     src="https://drive.google.com/file/d/1mCdZgI4O-pjC5_Bo8ujyAJLrlLlI63ie/preview" 
     height="480" 
     allow="autoplay">
   </iframe>
+
+  <h2>💬 Leave Your Feedback</h2>
+  <p><strong>Share Your Thoughts (If You’d Like!)</strong> <br>
+  <small><em>This form is pre-filled with the video you’re watching. Comments are optional — feel free to share insights or skip.</em></small></p>
+
+  <iframe 
+    id="formFrame"
+    height="671" 
+    frameborder="0" 
+    marginheight="0" 
+    marginwidth="0">
+    Loading…
+  </iframe>
+
+</body>
+</html>
+
 
   <h2>💬 Leave Your Feedback</h2>
   <p><strong>Share Your Thoughts (If You’d Like!)</strong> <br>
