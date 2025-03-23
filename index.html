@@ -30,7 +30,7 @@
     function updateFormLink() {
       const videoCode = getVideoCode();
       const formBase = "https://docs.google.com/forms/d/e/1FAIpQLSek5iHOME29_OZqOEb-5vVtiDqxZpmo793IPuWBaV7Rc0blFQ/viewform?embedded=true";
-      const fieldID = "entry.1767570797"; // Updated to your new form field
+      const fieldID = "entry.1767570797"; // Final confirmed field ID
       const formURL = `${formBase}&${fieldID}=${encodeURIComponent(videoCode)}`;
       document.getElementById("formFrame").src = formURL;
     }
@@ -48,7 +48,7 @@
   </iframe>
 
   <h2>💬 Leave Your Feedback</h2>
-  <p>Expand your brain one screencast at a time 🧠🚀</p>
+  <p>Never stop learning and growing.</p>
 
   <iframe 
     id="formFrame"
