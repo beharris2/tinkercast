@@ -30,7 +30,7 @@
     function updateFormLink() {
       const videoCode = getVideoCode();
       const formBase = "https://docs.google.com/forms/d/e/1FAIpQLSek5iHOME29_OZqOEb-5vVtiDqxZpmo793IPuWBaV7Rc0blFQ/viewform?embedded=true";
-      const fieldID = "entry.1767570797"; // Final confirmed field ID
+      const fieldID = "entry.1767570797";
       const formURL = `${formBase}&${fieldID}=${encodeURIComponent(videoCode)}`;
       document.getElementById("formFrame").src = formURL;
     }
@@ -48,7 +48,8 @@
   </iframe>
 
   <h2>💬 Leave Your Feedback</h2>
-  <p>Never stop learning and growing.</p>
+  <p><strong>Never stop learning and growing.</strong> <br>
+  <small><em>This box is already filled out with the video you’re watching. You don’t need to change it unless you’re switching topics.</em></small></p>
 
   <iframe 
     id="formFrame"
