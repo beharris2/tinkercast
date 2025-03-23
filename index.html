@@ -21,11 +21,26 @@
       margin-bottom: 30px;
     }
   </style>
+  <script>
+    function getVideoCode() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get('video') || '';
+    }
+
+    function updateFormLink() {
+      const videoCode = getVideoCode();
+      const formBase = "https://docs.google.com/forms/d/e/1FAIpQLSek5iHOME29_OZqOEb-5vVtiDqxZpmo793IPuWBaV7Rc0blFQ/viewform?embedded=true";
+      const fieldID = "entry.1767570797"; // Updated to your new form field
+      const formURL = `${formBase}&${fieldID}=${encodeURIComponent(videoCode)}`;
+      document.getElementById("formFrame").src = formURL;
+    }
+
+    window.onload = updateFormLink;
+  </script>
 </head>
 <body>
 
   <h1>🎬 Watch the Video</h1>
-  <!-- Replace the src below with your own video embed -->
   <iframe 
     src="https://drive.google.com/file/d/1mCdZgI4O-pjC5_Bo8ujyAJLrlLlI63ie/preview" 
     height="480" 
@@ -33,10 +48,16 @@
   </iframe>
 
   <h2>💬 Leave Your Feedback</h2>
-  <p>Please take a moment to comment on the video using the form below. If you're commenting on multiple videos, be sure to include the title or code inside the form.</p>
+  <p>Expand your brain one screencast at a time 🧠🚀</p>
 
-  <!-- Google Form embed -->
- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSek5iHOME29_OZqOEb-5vVtiDqxZpmo793IPuWBaV7Rc0blFQ/viewform?embedded=true" width="640" height="671" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  <iframe 
+    id="formFrame"
+    height="671" 
+    frameborder="0" 
+    marginheight="0" 
+    marginwidth="0">
+    Loading…
+  </iframe>
 
 </body>
 </html>
