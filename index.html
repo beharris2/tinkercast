@@ -17,14 +17,12 @@
 <!-- Google Drive Embedded Video using iframe -->
 <iframe src="https://drive.google.com/file/d/1mCdZgI4O-pjC5_Bo8ujyAJLrlLlI63ie/preview" width="100%" height="480" allow="autoplay"></iframe>
 
-<!-- Comment Form -->
 <div id="comments">
   <h3>💬 Add a Comment</h3>
   <form id="commentForm">
-    <input type="hidden" id="timestamp">
     <label for="comment">Your Comment:</label><br>
-    <textarea id="comment" rows="3" cols="50" required></textarea><br><br>
-    <button type="submit">Submit Comment (Auto-Timestamped)</button>
+    <textarea id="comment" rows="3" cols="50" placeholder="Write your feedback here..." required></textarea><br><br>
+    <button type="submit">Submit Comment</button>
   </form>
 
   <h3>🗒️ Comments</h3>
@@ -32,23 +30,13 @@
 </div>
 
 <script>
-  const video = document.getElementById('videoPlayer');
-  const timestampInput = document.getElementById('timestamp');
-
-  // Set timestamp just before submission
   document.getElementById("commentForm").addEventListener("submit", function(event) {
     event.preventDefault();
-
-    const currentTime = video.currentTime;
-    const minutes = Math.floor(currentTime / 60);
-    const seconds = Math.floor(currentTime % 60).toString().padStart(2, '0');
-    const timestamp = `${minutes}:${seconds}`;
-
     const commentText = document.getElementById("comment").value;
 
     const commentBox = document.createElement("div");
     commentBox.className = "comment-box";
-    commentBox.innerHTML = `<strong>${timestamp}</strong>: ${commentText}`;
+    commentBox.innerHTML = commentText;
     document.getElementById("commentList").appendChild(commentBox);
 
     document.getElementById("comment").value = "";
